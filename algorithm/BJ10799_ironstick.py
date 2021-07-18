@@ -2,8 +2,10 @@
 https://www.acmicpc.net/problem/10799
 '''
 
+
 data = input()
 
+'''
 # 문자열 일부 치환 / ()를 0으로 바꿈
 data_rep = data.replace("()", "0")
 
@@ -57,3 +59,21 @@ def count_stick(y):
 
 data_stick = replace_right(data_rep)
 print(count_stick(data_stick))
+'''
+
+def count_stick(x):
+    check = []
+    ans = 0
+    for i in range(len(x)):
+        if x[i] == "(":
+            check.append("(")
+        elif x[i] == ")":
+            if x[i - 1] == "(":
+                check.pop()
+                ans += len(check)
+            elif x[i - 1] ==")":
+                check.pop()
+                ans += 1
+    return(ans)
+
+print(count_stick(data))
