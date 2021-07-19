@@ -51,36 +51,30 @@
 
 
 '''
+import sys
 
+input = sys.stdin.readline
 n = int(input())
 data = []
 for _ in range(n):
     data.append(int(input()))
+ans = []
 
+stk = [0]
+k = 1
+for i in range(n):
+    while stk[-1] < data[i]: # 스택의 맨 뒤의 숫자가 목표 수열의 숫자보다 작을 경우에는 dummy에서 push하여 스택에 추가
+        stk.append(k)
+        k += 1
+        ans.append('+')
+    
+    if stk[-1] == data[i]: # 스택의 맨 뒤의 숫자가 목표 수열의 숫자와 같으면 스택에서 pop
+        stk.pop()
+        ans.append('-')
+    
+    if stk[-1] > data[i]: # 만약 스택의 맨 뒤 숫자가 목표 수열의 숫자보다 클 경우에는 불가능 사인 출력
+        print('NO')
+        break
 
-def tony_stark(datalist):
-    global n
-    dummy = list(range(1, n + 1)) # 1부터 n까지의 리스트를 만듦
-    stk = [0]
-    k = 0
-    ans = []
-    for i in range(n):
-        while stk[-1] < datalist[i]: # 스택의 맨 뒤의 숫자가 목표 수열의 숫자보다 작을 경우에는 dummy에서 push하여 스택에 추가
-            stk.append(dummy[k])
-            k += 1
-            ans.append('+')
-        
-        if stk[-1] == datalist[i]: # 스택의 맨 뒤의 숫자가 목표 수열의 숫자와 같으면 스택에서 pop
-            stk.pop()
-            ans.append('-')
-        
-        if stk[-1] > datalist[i]: # 만약 스택의 맨 뒤 숫자가 목표 수열의 숫자보다 클 경우에는 불가능 사인 출력
-            return('NO')
-    return(ans)
-
-a = tony_stark(data)
-if a == "NO":
-    print(a)
-else:
-    for i in tony_stark(data):
-        print(i)
+if len(ans) == n * 2:
+    print('\n'.join(ans))
