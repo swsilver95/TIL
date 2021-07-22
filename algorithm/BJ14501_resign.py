@@ -37,6 +37,7 @@ N = 7인 경우에 다음과 같은 상담 일정표를 보자.
 
 '''
 import sys
+import itertools
 
 N = int(sys.stdin.readline())
 data = []
@@ -46,9 +47,62 @@ for _ in range(N):
 dummy = list(range(1, N + 1))
 my_dict = dict()
 for i in range(N):
-    if i + data[i][0] > N -1:
+    if i + data[i][0] > N:
         continue
     else:
-        my_dict[f'{i+1}, {data[i][1]}'] = dummy[i : i + data[i][0]]
-print(my_dict)
+        my_dict[f'{i+1}, {data[i][1]}'] = dummy[i: i + data[i][0]]
+# print(my_dict)
 
+
+def calc_date(data_dict):
+    date_comb = [] # 모든 회의 일정의 조합
+    for val in data_dict.values():
+        date_comb.append(val)
+    all_comb = [] # 모든 날짜 선택의 조합
+    # print(date_comb)
+    for i in range(1, len(date_comb) + 1):
+        all_comb += list(itertools.combinations(date_comb, i))
+    # print(len(date_comb))
+    # print(all_comb)
+    return all_comb
+
+def validate_list(cases):
+    good_list = [] # 최종 가능 케이스 모음
+    for case in cases:
+        tmp_set = set(case[0]) # 피벗을 케이스의 [0]번 집합으로 만듦
+        base_len = len(case[0]) # 합집합하기 전의 길이
+        for i in range(1, len(case)): # [0]번은 이미 피벗으로 뽑았으므로 [1]부터
+            tmp_set = tmp_set | set(case[i]) #[i]번과 계속 합집합함
+            base_len += len(case[i]) # 마찬가지로 나중에 비교할 길이도 저장
+        # print(tmp_set)
+        if len(tmp_set) < base_len: # 합집합 결과의 길이가, 합집합 전 집합들의 길이보다 작은 경우에는 중복된 값이 있었다는 뜻, continue
+            continue
+        else: # 만약 같으면 가능한 케이스, good_list에 추가
+            good_list.append(case)
+    return good_list
+
+my_cases = calc_date(my_dict)
+best_list = validate_list(my_cases)
+# print(best_list)
+
+def get_key(val):
+    for key, value in my_dict.items():
+         if val == value:
+             return key
+
+def money(real_list):
+    max_list = []
+    for k in real_list:
+        # print(k)
+        total = 0
+        for m in range(len(k)):
+            x, dollar = map(int, get_key(k[m]).split(', '))
+            total += dollar
+        max_list.append(total)
+    # print(max_list)
+    if len(max_list) != 0:
+        return max(max_list)
+    else:
+        return 0
+
+print(money(best_list))
