@@ -106,3 +106,30 @@ def money(real_list):
         return 0
 
 print(money(best_list))
+
+'''
+# 정민 코드
+import sys
+
+n = int(sys.stdin.readline())  # 퇴사 전 날을 입력 받음
+data = []  # 입력 받을 배열
+for _ in range(n):
+    data.append(list(map(int, sys.stdin.readline().split())))  # 입력 받기
+ans = 0
+
+
+def cgs(idx, value):  # 답을 찾는 재귀 함수
+    if idx == n:  # 0일 부터 시작하므로 딱 n일 경우 종료
+        global ans
+        if ans < value:  # 최댓값을 저장함
+            ans = value
+        return
+    if idx > n:  # 그 이상 일경우 상담 불가능
+        return
+    cgs(idx + data[idx][0], value + data[idx][1])  # 상담을 하는 경우 재귀
+    cgs(idx + 1, value)  # 상담을 하지 않고 다음날을 가는 경우
+
+
+cgs(0, 0)  # 스타토
+sys.stdout.write(str(ans))  # 정답 출력
+'''
