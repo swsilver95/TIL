@@ -5,6 +5,7 @@ numbers = list(map(int, str(N)))
 card = 0 # 세트 개수 변수 설정
 cnt_list = [0] * 10 # 각 숫자별 잔여량을 나타낼 리스트
 for number in numbers:
+    # 대충 6하고 9일때 예외처리
     if number == 6 or number == 9:
         if cnt_list[6] == 0 and cnt_list[9] == 0:
             card += 1
