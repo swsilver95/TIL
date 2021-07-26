@@ -1,7 +1,4 @@
 T = int(input())
-my_strings = []
-for _ in range(T):
-    my_strings.append(input())
 
 def madi(my_str):
     i = 1
@@ -16,4 +13,5 @@ def madi(my_str):
     return 0
 
 for i in range(T):
-    print(f'#{i+1} {madi(my_strings[i])}')
+    my_string = input()
+    print(f'#{i+1} {madi(my_string)}')
