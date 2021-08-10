@@ -22,7 +22,7 @@ for i in range(n):
 
 order = list(map(int, input().split(" ")))
 
-print(data)
+# print(data)
 dice = [[0] * 3 for _ in range(4)]
 
 location = [x, y]
