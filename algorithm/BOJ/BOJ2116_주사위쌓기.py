@@ -34,7 +34,7 @@ def side_max(numbers, idx):                         # 주사위와 밑면 인덱
     return max_sidenum
 
 def find_opposite(n):                               # 입력된 인덱스의 반댓면 인덱스를 반환하는 함수
-    dx = [0, 1, 2, 3, 4, 5]                         # 밑면 인덱스를 넣으면 윗면 인덱스를 반환함
+    dx = [0, 1, 2, 3, 4, 5]                         # 밑면 인덱스를 넣으면 윗면 인덱스를 반환함 
     dy = [5, 3, 4, 1, 2, 0]
     for i in range(6):
         if n == dx[i]:

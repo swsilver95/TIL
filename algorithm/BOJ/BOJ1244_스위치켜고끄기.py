@@ -33,6 +33,6 @@ cnt = 0                                                 # 출력 횟수 카운�
 for switch in switches:             
     cnt += 1
     print(switch, end=' ')                              
-    if cnt == 20:                                       # cnt가 20일 때마다 개행문자 출력
+    if cnt == 20:                                       # cnt가 20일 때마다 개행문자 출력 
         print()
         cnt = 0
