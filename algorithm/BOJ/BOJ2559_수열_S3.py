@@ -9,7 +9,6 @@ temps = list(map(int, input().split()))
 def high_sum(numbers):
     global N
     global K
-    high = []
     high_tmp = 0
     for i in range(K):
         high_tmp += numbers[i]
