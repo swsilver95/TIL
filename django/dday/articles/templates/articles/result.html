@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <a href="{% url 'articles:getdate' %}">날짜 다시 설정하러 가기</a>
+  <hr>
+  <br>
+  <p>{{ from_dday }}</p>
+  <p>{{ day100 }}</p>
+  <p>{{ day200 }}</p>
+  <p>{{ day300 }}</p>
+  <p>{{ day400 }}</p>
+  <p>{{ day500 }}</p>
+  <p>{{ day600 }}</p>
+  <p>{{ day700 }}</p>
+  <p>{{ day800 }}</p>
+  <p>{{ day900 }}</p>
+  <p>{{ day1000 }}</p>
+{% endblock %}

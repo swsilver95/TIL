@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <a href="{% url 'articles:index' %}">Main으로 이동</a>
+  <hr>
+  <form action="{% url 'articles:result' %}" method='GET'>
+    <label for="datetime">기준이 될 날짜를 선택해주세요.(1일) : </label>
+    <input type="date" name='date' id='datetime'>
+    <input type="submit">
+  </form>
+{% endblock %}
