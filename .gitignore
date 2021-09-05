@@ -257,3 +257,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,django,python,windows
+
+# file: ~/.gitignore_global
+.idea/
