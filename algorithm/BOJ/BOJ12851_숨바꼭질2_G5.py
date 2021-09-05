@@ -32,8 +32,8 @@ def bfs(N, K):
 
 cnt = 0                                 # 개수는 0으로 우선 초기화
 visited = [0 for _ in range(100001)]    # 방문처리할 배열
-visited[N] = 1
+visited[N] = 1                          # 시작점 방문처리
 bfs(N, K)                               # 너비우선탐색 시작
 
-print(visited[K] - 1)                   # K에 도착했을 때의 최단 시간 출력
+print(visited[K] - 1)                   # K에 도착했을 때의 최단 시간 출력 / 시작점이 1이었으므로, 최종 결과에서 1을 뺌
 print(cnt)                              # 최단 시간으로 몇 번 K를 찾아냈는지 출력
