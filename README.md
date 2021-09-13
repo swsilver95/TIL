@@ -13,4 +13,5 @@
 1. BOJ - 백준 알고리즘 문제
 2. SWEA - 삼성 SWEA 알고리즘 문제
 3. Practice - 개인 연습
+4. etc - 기타
 
