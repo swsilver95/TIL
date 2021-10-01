@@ -6,8 +6,6 @@ dy = [0, 0, -1, 1]
 
 def dfs(x, y, dig):
     global answer
-    if answer < visited[x][y]:
-        answer = visited[x][y]
 
     for r in range(4):
         nx = x + dx[r]
@@ -27,6 +25,9 @@ def dfs(x, y, dig):
                         dfs(nx, ny, False)
                         visited[nx][ny] = 0
                         data[nx][ny] = temp
+
+    if answer < visited[x][y]:
+        answer = visited[x][y]
 
 
 for tc in range(1, T + 1):
