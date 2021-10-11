@@ -49,8 +49,9 @@ my_dict = dict()
 for i in range(N):
     if i + data[i][0] > N:
         continue
-    else:
-        my_dict[f'{i+1}, {data[i][1]}'] = dummy[i: i + data[i][0]]
+        # f스트링에 문제가 생겨서 임시로 주석처리
+    # else:
+    #     my_dict[f'{i+1}, {data[i][1]}'] = dummy[i: i + data[i][0]]
 # print(my_dict)
 
 
