@@ -67,6 +67,7 @@ def calc_date(data_dict):
     # print(all_comb)
     return all_comb
 
+
 def validate_list(cases):
     good_list = [] # 최종 가능 케이스 모음
     for case in cases:
@@ -86,10 +87,12 @@ my_cases = calc_date(my_dict)
 best_list = validate_list(my_cases)
 # print(best_list)
 
+
 def get_key(val):
     for key, value in my_dict.items():
          if val == value:
              return key
+
 
 def money(real_list):
     max_list = []
@@ -105,6 +108,7 @@ def money(real_list):
         return max(max_list)
     else:
         return 0
+
 
 print(money(best_list))
 
