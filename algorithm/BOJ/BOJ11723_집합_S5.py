@@ -1,7 +1,7 @@
 import sys
 input = sys.stdin.readline
 
-M = int(input())
+M = int(input().rstrip())
 
 S = set()
 
@@ -15,9 +15,13 @@ for _ in range(M):
         continue
 
     command, num = tmp.split()
+    num = int(num)
 
     if command == 'add':
-        S.add(num)
+        if num in S:
+            continue
+        else:
+            S.add(num)
 
     elif command == 'check':
         if num in S:
