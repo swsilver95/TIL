@@ -3,7 +3,10 @@ import sys
 
 N = int(input())
 M = int(input())
-channels = set(map(int, input().split()))
+if M != 0:
+    channels = set(map(int, input().split()))
+else:
+    channels = set()
 
 if N == 100:
     print(0)
