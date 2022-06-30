@@ -6,7 +6,6 @@ T = int(input())
 da = [-1, 1, 0, 0]
 db = [0, 0, -1, 1]
 
-
 def bfs(r, c):
     global cnt
     q = deque()
